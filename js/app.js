@@ -100,3 +100,56 @@ let refresh = function () {
 
 console.log(refresh);
 
+//lab12 Chart
+
+function renderChart() {
+  let canvasEl = document.createElement('canvas');
+  canvasEl.setAttribute = ('id', 'productChart');
+  chartContainer.style.width = '500px';
+  chartContainer.style.height = '500px';
+  chartContainer.appendChild(canvasEl);
+
+  let buttonEl = document.createElement('a');
+  buttonEl.textContent = 'Chart';
+  buttonEl.setAttribute('class', 'btn');
+  buttonEl.href = '#chartContainer';
+  buttonLinks.appendChild(buttonEl);
+
+  let ctx = canvasEl.getContext('2d');
+  let votes = [];
+  let names = [];
+  for(let i = 0; i < Catalog.allProudct; i++) {
+    votes[i] = Catalog.allProudct[i].timesClicked;
+    names[i] = Catalog.allProudct[i].name;
+  }
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: names,
+      datasets: [{
+        data: votes,
+        label: 'Votes',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: 'Votes Per Product',
+        fontSize: 50
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            stepSize: 1
+          }
+        }]
+      }
+    }
+  });
+}
+
