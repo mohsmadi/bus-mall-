@@ -1,3 +1,36 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: rgb(212, 236, 145);
+}
+
+.active {
+  background-color: #78d1e7;
+}
+.proudctSection{
+  position: absolute;
+  
+}
+
+
 h1 {
   font-family: "Monoton";
   text-transform: capitalize;
@@ -40,4 +73,4 @@ ul li img {
   display: inline-block;
   font-family: "Monoton";
   font-size: 38px;
-}
+} 
